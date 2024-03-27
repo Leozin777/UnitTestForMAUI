@@ -1,0 +1,176 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0;net8.0-android;net8.0-ios;</TargetFrameworks>
+		<OutputType Condition="'$(TargetFramework)' != 'net8.0'">Exe</OutputType>
+		<RootNamespace>MAUIParaSerTestado</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>MAUIParaSerTestado</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.mauiparasertestado</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+		<PackageReference Include="AlohaKit.Animations">
+			<version>1.0.0</version>
+		</PackageReference>
+		<PackageReference Include="CarouselView.Maui">
+			<version>1.0.6</version>
+		</PackageReference>
+		<PackageReference Include="CommunityToolkit.Maui">
+			<version>7.0.1</version>
+		</PackageReference>
+		<PackageReference Include="CommunityToolkit.Maui.Core">
+			<version>7.0.1</version>
+		</PackageReference>
+		<PackageReference Include="CommunityToolkit.Mvvm">
+			<version>8.2.2</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.Charts">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.Pdf">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.Controls">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.Core">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.DataGrid">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.Editors">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.Scheduler">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.CollectionView">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DotNetMeteor.HotReload.Plugin">
+			<version>3.1.2</version>
+		</PackageReference>
+		<PackageReference Include="Plugin.Fingerprint">
+			<version>2.1.5</version>
+		</PackageReference>
+		<PackageReference Include="Plugin.LocalNotification">
+			<version>10.1.8</version>
+		</PackageReference>
+		<PackageReference Include="SimpleToolkit.Core">
+			<version>4.0.0</version>
+		</PackageReference>
+		<PackageReference Include="SimpleToolkit.SimpleShell">
+			<version>4.0.0</version>
+		</PackageReference>
+		<PackageReference Include="ZXing.Net.Maui">
+			<version>0.4.0</version>
+		</PackageReference>
+		<PackageReference Include="ZXing.Net.Maui.Controls">
+			<version>0.4.0</version>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">
+		<PackageReference Include="AlohaKit.Animations">
+			<version>1.0.0</version>
+		</PackageReference>
+		<PackageReference Include="CarouselView.Maui">
+			<version>1.0.6</version>
+		</PackageReference>
+		<PackageReference Include="CommunityToolkit.Maui">
+			<version>7.0.1</version>
+		</PackageReference>
+		<PackageReference Include="CommunityToolkit.Maui.Core">
+			<version>7.0.1</version>
+		</PackageReference>
+		<PackageReference Include="CommunityToolkit.Mvvm">
+			<version>8.2.2</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.Charts">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.Pdf">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.Controls">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.Core">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.DataGrid">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.Editors">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.Scheduler">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DevExpress.Maui.CollectionView">
+			<version>23.2.5</version>
+		</PackageReference>
+		<PackageReference Include="DotNetMeteor.HotReload.Plugin">
+			<version>3.1.2</version>
+		</PackageReference>
+		<PackageReference Include="Plugin.Fingerprint">
+			<version>2.1.5</version>
+		</PackageReference>
+		<PackageReference Include="Plugin.LocalNotification">
+			<version>10.1.8</version>
+		</PackageReference>
+		<PackageReference Include="SimpleToolkit.Core">
+			<version>4.0.0</version>
+		</PackageReference>
+		<PackageReference Include="SimpleToolkit.SimpleShell">
+			<version>4.0.0</version>
+		</PackageReference>
+		<PackageReference Include="ZXing.Net.Maui">
+			<version>0.4.0</version>
+		</PackageReference>
+		<PackageReference Include="ZXing.Net.Maui.Controls">
+			<version>0.4.0</version>
+		</PackageReference>
+	</ItemGroup>
+
+</Project>
